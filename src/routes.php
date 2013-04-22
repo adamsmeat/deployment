@@ -25,8 +25,8 @@ $git_deploy_closure = function($branch = null)
 	}
 
 
-	// force checkout desired branch
-	if ($branch) array_push($shell_commands, 'git checkout '.$branch);
+	// force checkout desired branch, limited on master and dev only
+	if ($branch === 'master' || $branch === 'dev') array_push($shell_commands, 'git checkout '.$branch);
 
 	// makes sure last command is git status
 	array_push($shell_commands, 'git status');
