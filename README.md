@@ -2,6 +2,7 @@
 
 Allows you to auto-deploy through git's POST hook a git branch that is assigned to an enviroment(edit Config::get('deployment.map')) or any branch by using route parameters. (e.g. deploy/{branch})
 
+Most likely scenario is that you have a master branch in production, which is updated by git pull
 
 ## Assumptions
 
@@ -25,5 +26,9 @@ You can force checking out a branch by appending the branch in url. e.g. your de
 
 ## Config Notes
 
-- 'deployment::route' specifies the url to use for post hook.
-- 'deployment::map' is an array which specifies that the key(environment) will auto check out the corresponding value(git branch).
+It is advised that you use your own config: php artisan config:publish adamsmeat/deployment
+
+- 'deployment::route' specifies the route used and must correspond to what was set in your git provider's POST service.
+- 'deployment::allowed_client_ips' limits who can do GET request.
+- 'deployment::allowed_provider_ips' limits who can do git POST service.
+- 'deployment::map' use this to auto checkout a git branch based on environment.
