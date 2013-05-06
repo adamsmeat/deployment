@@ -14,7 +14,7 @@
 <body>
 	<div class="container">
 		<h2>Current ENV: <?=App::environment()?></h2>
-		<div class="alert alert-info">Do in shell if php times out.</div>
+		<div class="alert alert-info">Do in shell if php timeout.</div>
 		<?=$output?>			
 	</div>
 </body>
