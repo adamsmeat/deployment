@@ -52,7 +52,7 @@ class Controller extends BaseController {
 	public function postDeploy($required_branch = null)
 	{
 		$output = $this->deploy($required_branch);
-		Response::make('Deployed successfully', 200);
+		return Response::make('Deployed successfully', 200);
 	}
 
 	public function getDeploy($required_branch = null)
